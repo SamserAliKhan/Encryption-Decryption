@@ -1,4 +1,4 @@
-#include <iostream> //okay
+#include <iostream>
 #include <sstream>  //To use the istringstream function
 #include <string.h> // To use the string functions.
 #include <string>   // For string and to_string()
@@ -32,6 +32,7 @@ public:
            << k << endl
            << "*----------#-----------*\n"
            << endl;
+      return ns;
    }
    string Cipher(string input)
    {
@@ -96,6 +97,7 @@ public:
             ns += s1;
             ns += " ";
          }
+         cout<<"The message is:"<<endl;
          return ns;
       }
       else
@@ -138,22 +140,35 @@ int main()
    Decription fn2;
 
    string ns = fn1.modify(s);
-   cout << "Press '1' Decrypt the message:" << endl;
+   cout << "Press '1' Decrypt the message:\nPress '2 to Exit:" << endl;
    int n;
    cin >> n;
-   cin.ignore(numeric_limits<streamsize>::max(), '\n');
    if (n == 1)
    {
-      cout << "\n\nEnter the Ciphered text:\n-----------------------" << endl;
       string txt;
-      getline(cin, txt);
+      cout << "Press '1' for manualy typing the Encrypted text:\nPress '2' to for auto passing the Encrypted text:" << endl;
+      int x;
+      cin >> x;
+      cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      if (x == 1)
+      {
+         cout<<"Enter the Encrypted text:"<<endl;
+         getline(cin, txt);
+      }
+      else if(x ==2)
+         txt = ns;
+      else{
+         cout << "Error 101";
+         return 0;
+      }
       string nss = fn2.Dmodify(txt);
-      cout << "The message is: "
-           << "\n"
-           << nss << endl;
+      cout << nss << endl;
    }
-   else
-      cout << "KEY doesn't match";
+   else if(n == 2){
+      cout<<"--------------------Thank You....!!--------------------"<<endl;
+   }
+   else 
+      cout << "Error 101";
 //l
    return 0;
 }

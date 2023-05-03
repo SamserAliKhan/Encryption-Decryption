@@ -146,7 +146,7 @@ int main()
    if (n == 1)
    {
       string txt;
-      cout << "Press '1' for manualy typing the Encrypted text:\nPress '2' to for auto passing the Encrypted text:" << endl;
+      cout << "Press '1' for manualy typing the Encrypted text:\nPress '2' for auto passing the Encrypted text:" << endl;
       int x;
       cin >> x;
       cin.ignore(numeric_limits<streamsize>::max(), '\n');
